@@ -1,11 +1,48 @@
-:root { --accent: #2d6cdf; }
+:root {--bg: #f8fafc; --fg: #1e293b;--muted: #64748b;--brand: #4f46e5;--ok: #22c55e;--warn: #f97316;--danger: #ef4444;
+--card: #ffffff;
+  --border: #e2e8f0;
+}
 
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #222; }
-.site-header { background: #f6f8fb; border-bottom: 1px solid #e7eaf0; }
-.nav { display: flex; gap: 1rem; padding: 1rem; max-width: 960px; margin: 0 auto; }
-.nav a { text-decoration: none; color: var(--accent); font-weight: 600; }
-.nav a:hover { text-decoration: underline; }
-.container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
-.site-footer { border-top: 1px solid #e7eaf0; padding: 1rem; text-align: center; color: #666; }
-h1 { margin-top: 0; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--fg); }
+
+/* Layout & Structure */
+.site-header { background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); }
+.nav { display: flex; gap: 1.5rem; align-items: center; padding: 1rem 1.5rem; }
+.nav a { color: var(--fg); text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
+.nav a:hover { color: var(--brand); }
+.container { max-width: 900px; margin: 2.5rem auto; padding: 0 1.5rem; }
+.site-footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); margin-top: 3rem; }
+
+/* Tables */
+.table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 0.5rem; overflow: hidden; }
+.table th, .table td { padding: 1rem; border-bottom: 1px solid var(--border); text-align: left; }
+.table th { color: var(--muted); font-weight: 600; background: var(--bg); text-transform: uppercase; font-size: 0.8rem; }
+.table tr:last-child td { border-bottom: none; }
+.acciones { white-space: nowrap; }
+
+/* Forms */
+.form-inline { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 0.75rem 0 1.5rem; align-items: center; }
+.input, input[type="text"], input[type="number"] { width: 100%; padding: 0.7rem 1rem; background: var(--bg); color: var(--fg); border: 1px solid var(--border); border-radius: 0.5rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.input:focus, input[type="text"]:focus, input[type="number"]:focus { border-color: var(--brand); outline: none; box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2); }
+.form-card { max-width: 520px; background: var(--card); padding: 2rem; border: 1px solid var(--border); border-radius: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); }
+.form-group { margin-bottom: 1.25rem; }
+.error { color: var(--danger); display: block; margin-top: 0.25rem; font-size: 0.875rem; }
+
+/* Buttons */
+.btn { display: inline-block; padding: 0.7rem 1.2rem; border-radius: 0.5rem; border: 1px solid var(--border); background: transparent; color: var(--fg); text-decoration: none; cursor: pointer; transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+.btn:hover { background-color: var(--border); }
+.btn-primary { background: var(--brand); border-color: var(--brand); color: white; }
+.btn-primary:hover { background: #3b33b0; border-color: #3b33b0; }
+.btn-secondary { background: var(--muted); border-color: var(--muted); color: white; }
+.btn-secondary:hover { background: #526177; border-color: #526177; }
+.btn-danger { background: var(--danger); border-color: var(--danger); color: white; }
+.btn-danger:hover { background: #c22f2f; border-color: #c22f2f; }
+.btn-small { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+
+/* Flash Messages */
+.flash-container { margin: 1.5rem 0; display: grid; gap: 0.75rem; }
+.flash { padding: 0.8rem 1.2rem; border-radius: 0.5rem; border: 1px solid; font-weight: 500; }
+.flash.success { border-color: #a7f3d0; background: #d1fae5; color: #065f46; }
+.flash.info { border-color: #bfdbfe; background: #dbeafe; color: #1e40af; }
+.flash.warning { border-color: #fed7aa; background: #fffbe6; color: #9a3412; }
