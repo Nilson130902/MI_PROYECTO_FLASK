@@ -11,8 +11,7 @@ class Inventario:
         productos = Producto.query.all()              
         productos_dict = {p.id: p for p in productos} 
         return cls(productos_dict)
-
-    #CRUD
+#CRUD
     def agregar(self, nombre: str, cantidad: int, precio: float) -> Producto:
         if nombre.lower() in self.nombres:
             raise ValueError('Ya existe un producto con ese nombre.')
