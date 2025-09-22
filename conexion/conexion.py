@@ -1,17 +1,22 @@
-# conexion directa sin sqlalchemy
-
+# clase de conexion a BD sin sqlalchemy 
 import mysql.connector
+from mysql.connector import Error
 
-#conexion 
+# conexion a la base de datos
+
 def conexion():
     return mysql.connector.connect(
         host='localhost',
-        user='root',
-        password='',
-        database='sistema_ventas'
+        database='Productos',
+        user='root',  # luego en producción usa variable de entorno
+        password='123456' # luego en producción usa variable de entorno
     )
-# CERRAR CONEXION 
+
+# cerrar conexion a la base de datos
+
 def cerrar_conexion(conn):
     if conn.is_connected():
         conn.close()
-        print("conexion cerrada")
+        print("Conexion a la base de datos cerrada.")
+
+# probar conexion a la base de datos
