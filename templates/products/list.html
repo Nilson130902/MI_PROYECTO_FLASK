@@ -1,42 +1,28 @@
 {% extends "base.html" %}
-{% block title %}Productos{% endblock %}
+{% block title %}Acerca de{% endblock %}
 
 {% block content %}
-<h1>Inventario</h1>
+<h1>Acerca de</h1>
 
-<form method="get" action="{{ url_for('listar_productos') }}" class="form-inline">
-  <input type="text" name="q" placeholder="Buscar por nombre" value="{{ q or '' }}">
-  <button type="submit" class="btn">Buscar</button>
-  <a class="btn btn-primary" href="{{ url_for('crear_producto') }}" > Nuevo</a>
-</form>
 
-{% if productos %}
-<h1> Ver si ingresa</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th><th>Nombre</th><th>Cantidad</th><th>Precio</th><th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for p in productos %}
-    <tr>
-      <td>{{ p.id }}</td>
-      <td>{{ p.nombre }}</td>
-      <td>{{ p.cantidad }}</td>
-      <td>${{ '%.2f'|format(p.precio) }}</td>
-      <td>
-        <a class="btn btn-small" href="{{ url_for('editar_producto', pid=p.id) }}">Editar</a>
-        <form method="post" action="{{ url_for('eliminar_producto', pid=p.id) }}" style="display:inline"
-              onsubmit="return confirm('¿Eliminar {{ p.nombre }}?');">
-          <button type="submit" class="btn btn-danger btn-small">Eliminar</button>
-        </form>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% else %}
-<p>No hay productos para mostrar.</p>
-{% endif %}
+<h2>Quiénes Somos</h2>
+<p>Somos una papelería con más de 25 años de trayectoria, líderes en la venta de artículos de oficina y escolares. Nos dedicamos a ofrecer productos de calidad para impulsar tu creatividad y productividad.</p>
+
+<h2>Nuestra Misión</h2>
+<p>Brindar una amplia variedad de productos de papelería de alta calidad, garantizando un servicio amigable y eficiente para satisfacer las necesidades de estudiantes, profesionales y artistas.</p>
+
+<h2>Nuestra Visión</h2>
+<p>Ser la papelería de referencia en nuestra comunidad, reconocida por nuestra innovación constante y el compromiso con la excelencia, creando un espacio donde la inspiración y las herramientas se encuentren.</p>
+
+<h2>Contacto</h2>
+<p>Para más información o pedidos especiales, contáctanos a través de nuestro correo electrónico: contacto@papeleria.com</p>
+
+<h2>Ubicación</h2>
+<p>Visítanos en nuestra tienda ubicada en la Av. Principal 456, Centro Comercial El Libro Abierto.</p>
+<h2>Redes Sociales</h2>
+<p>Síguenos en nuestras redes sociales para estar al tanto de nuestras novedades:</p>
+<ul>
+  <li><a href="https://www.facebook.com/empresa" target="_blank">Facebook</a></li>
+  <li><a href="https://www.twitter.com/empresa" target="_blank">Twitter</a></li>
+  <li><a href="https://www.instagram.com/empresa" target="_blank">Instagram</a></li>
 {% endblock %}

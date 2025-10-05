@@ -35,7 +35,7 @@ def load_user(user_id: str):
 # ========================
 #  AUTENTICACIÓN
 # ========================
-"""@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email', '').strip().lower()
@@ -46,9 +46,9 @@ def login():
             flash('Has iniciado sesión correctamente.', 'success')
             return redirect(request.args.get('next') or url_for('index'))
         flash('Credenciales inválidas. Inténtalo de nuevo.', 'danger')
-    return render_template('login.html', title='Iniciar Sesión')"""
+    return render_template('login.html', title='Iniciar Sesión')
 
-@app.route('/login', methods=['GET', 'POST'])
+"""@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         try:
@@ -85,7 +85,7 @@ def login():
             flash('Error al iniciar sesión (revisa la consola).', 'danger')
 
     return render_template('login.html', title='Iniciar Sesión')
-
+"""
 
 
 @app.route('/logout', methods=['POST'])

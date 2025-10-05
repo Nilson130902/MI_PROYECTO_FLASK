@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Productos{% endblock %}
+{% block content %}
+<section class="productos">
+    <h2>Nuestros Productos</h2>
+    <div class="galeria">
+        <div class="producto">
+            <img src="{{ url_for('static', filename='img/libreta.jpg') }}" alt="Libreta">
+            <h3>Libretas</h3>
+            <p>Diferentes tamaños, colores y diseños.</p>
+        </div>
+        <div class="producto">
+            <img src="{{ url_for('static', filename='img/lapiceros.jpg') }}" alt="Lapiceros">
+            <h3>Lapiceros</h3>
+            <p>Colores vivos y escritura suave.</p>
+        </div>
+        <div class="producto">
+            <img src="{{ url_for('static', filename='img/material-arte.jpg') }}" alt="Material de Arte">
+            <h3>Material de Arte</h3>
+            <p>Pinceles, témperas, marcadores y más.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
